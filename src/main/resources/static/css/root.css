@@ -1,0 +1,12 @@
+:root {
+    --border-color: #eee;
+    --border-color-C4: #cecece;
+    --border-color-FC: #fcfcfc;
+    --font-color-gray-01: #687074;
+    --font-color-gray-03: #333;
+    --font-color-gray-05: #555;
+    --font-color-gray-07: #777;
+    --font-color-gray-09: #ececec;
+    --font-color-blue: #0076C0;
+    --container-size: 1200px;
+}

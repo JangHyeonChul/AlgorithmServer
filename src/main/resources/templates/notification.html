@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header-config"></head>
+
+<body>
+
+<div th:replace="/fragments/nav"></div>
+
+
+<div class="breadcrumbs"></div>
+
+<div class="container">
+
+
+  <h1 class="notifi_title" th:text="${notificationBoard.noti_title}">최신공지사항</h1>
+  <div class="board_container">
+    <div th:text="${notificationBoard.noti_title}" class="board_notifi_title">
+    </div>
+    <div th:utext="${notificationBoard.noti_content}" class="board_notifi_content">
+    </div>
+    <div class="board_notifi_push">
+    </div>
+
+    <div class="board_notifi_userInfo">
+      <p class="margin-right-1" th:text="'작성자 : ' + ${notificationBoard.user_id}">작성자</p>
+      <p class="margin-right-1" th:text="'작성일 : ' + ${notificationBoard.transNotiTime}">작성일</p>
+    </div>
+
+  </div>
+
+</div>
+
+<div style="margin-top: 1rem;" class="container" >
+  <div class="body-qeustion-table">
+    <table class="table table-border">
+      <thead>
+      <tr>
+        <th style="width: 10%;">글번호</th>
+        <th style="width: 60%;">제목</th>
+        <th style="width: 15%;">작성일</th>
+        <th style="width: 15%;">작성자</th>
+      </tr>
+      </thead>
+
+      <tbody th:each="notification : ${notification}">
+      <tr>
+      <td th:text="${notification.noti_no}">1</td>
+
+        <td>
+      <a th:text="${notification.noti_title}"
+         th:href="@{/notification/{pageNum}(pageNum = ${notification.noti_no}, page = ${page})}">
+      </a>
+        </td>
+      <td th:text="${notification.transNotiTime}">1일전</td>
+      <td th:text="${notification.user_id}">wkdgus1136</td>
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="noti-nav-search">
+    <div class="noti-search-form">
+      <input style="margin-right: 0.4rem;" type="text" name="notikeyword" id="notikeyword" />
+      <button onclick="notiSearchBtn()"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="problem-page-nav">
+
+  <div  th:if="${ph.isShowPrev()}">
+    <a class="problem-page-nav-box" th:href="@{/notification/{page}(page = ${ph.page - 1})}">
+      <i class="fas fa-chevron-left"></i></a>
+  </div>
+
+  <div th:each="i : ${#numbers.sequence(ph.beginPage, ph.endPage)}">
+    <a class="problem-page-nav-box"
+       th:text="${i}"
+       th:href="@{'?page=' + ${i}}" th:classappend="${ph.page == i} ? 'color-red' : ''"></a>
+
+  </div>
+
+  <div th:if="${ph.isShowNext()}">
+    <a class="problem-page-nav-box" th:href="@{/notification/{page}(page = ${ph.page + 1})}">
+      <i class="fas fa-chevron-right"></i></a>
+  </div>
+
+</div>
+
+
+
+<div th:replace="/fragments/footer"></div>
+<div th:replace="/fragments/javascript"></div>
+
+</body>
+
+</html>

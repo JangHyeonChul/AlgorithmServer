@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header-config"></head>
+
+<body>
+<div th:replace="/fragments/nav"></div>
+
+<div class="breadcrumbs">
+
+  <div class="container search-container">
+    <h1>검색</h1>
+    <div class="search-group">
+      <input class="search-input" type="text"/>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container body-nav">
+
+  <div class="search-board-container">
+
+    <div class="search-sidebar margin-right-1">
+      <ul>
+        <li><h1>검색 분류</h1></li>
+        <li><a th:href="@{/search(type= 'problem')}">문제</a></li>
+        <li><a th:href="@{/search(type= 'board')}">질문</a></li>
+        <li><a th:href="@{/search(type= 'noti')}">공지</a></li>
+      </ul>
+    </div>
+
+    <div class="search-result-container">
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<div th:replace="/fragments/javascript"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/header-config"></head>
+
+<body>
+<div th:replace="/fragments/nav"></div>
+<div class="breadcrumbs"></div>
+
+<div class="container body-nav">
+  <div class="container-body-nav">
+    <ul class="body-nav-ul">
+      <a th:href="@{/problem/{p_no}(p_no=${pageNum}, page=${page})}"><li class="body-nav-li" >문제</li></a>
+      <a th:href="@{/problem(page=${page})}"><li class="body-nav-li">목록</li></a>
+      <a th:href="@{/history/{p_no}(p_no=${pageNum}, page=${page})}"><li style="background-color: #428bca; color: white;" class="body-nav-li">제출내역</li></a>
+      <a th:href="@{/challenge/{p_no}(p_no=${pageNum}, page=${page})}"><li style="color: red;" class="body-nav-li">도전하기</li></a>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<div class="container board-content-body">
+
+
+  <table style="border: 1px solid var(--border-color-C4);" class="table board-content-table table-border">
+    <thead class="board-content-thead history-thead">
+    <tr>
+      <th style="width: 10%;" class="border-right">문제번호</th>
+      <th style="width: 10%; ">회원아이디</th>
+      <th style="width: 20%; ">성공여부</th>
+      <th style="width: 20%; ">실패이유</th>
+      <th style="width: 20%;">제출언어</th>
+      <th style="width: 20%;">제출일자</th>
+    </tr>
+    </thead>
+
+    <div th:each="solveHistory : ${solveHistoryList}">
+    <tbody class="board-content-tbody history-tbody">
+
+      <tr>
+        <td th:text="${solveHistory.p_no}">문제번호</td>
+        <td th:text="${solveHistory.user_id}">회원아이디</td>
+        <td th:text="${solveHistory.success_chk}"></td>
+        <td th:text="${solveHistory.submit_fail}"></td>
+        <td th:text="${solveHistory.submit_lang}"></td>
+        <td th:text="${solveHistory.transTime}"></td>
+      </tr>
+
+    </tbody>
+    </div>
+  </table>
+</div>
+
+
+<div th:replace="/fragments/footer"></div>
+<div th:replace="/fragments/javascript"></div>
+</body>
+
+</html>
