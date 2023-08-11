@@ -5,6 +5,7 @@ import com.algorithm.algoprojectserver.dto.*;
 import com.algorithm.algoprojectserver.service.CompileService;
 import com.algorithm.algoprojectserver.service.HistoryService;
 import com.algorithm.algoprojectserver.service.ProblemService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -87,6 +88,8 @@ public class ProblemController {
         model.addAttribute("page", page);
         model.addAttribute("problemAnswer", problemAnswers);
 
+        System.out.println("problemAnswers = ");
+
 
         return "/problem/problem-submit";
     }
@@ -108,8 +111,8 @@ public class ProblemController {
 
 
     @PostMapping("/challenge/{pageNum}")
-        public String challenge(String code, @RequestParam("language")String lang, @PathVariable Integer pageNum) {
-        compileService.compileHandler(code, lang, pageNum);
+        public String challenge(String code, @RequestParam("language")String lang, @PathVariable Integer pageNum, HttpServletRequest request) {
+        compileService.compileHandler(code, lang, pageNum, request);
 
         return "redirect:/problem";
     }

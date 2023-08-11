@@ -9,6 +9,7 @@ import com.algorithm.algoprojectserver.mapper.ProblemMapper;
 import com.algorithm.algoprojectserver.service.CompileService;
 import com.algorithm.algoprojectserver.service.HistoryService;
 import com.algorithm.algoprojectserver.service.PointService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,19 +42,19 @@ public class CompileServiceImpl implements CompileService {
 
     @Override
     @Transactional
-    public String compileHandler(String code, String lang, Integer pageNum) {
+    public String compileHandler(String code, String lang, Integer pageNum, HttpServletRequest request) {
         List<String> compileResults = new ArrayList<>();
 
         if (lang.equals("JAVA")) {
-            compileResults = javaCompile.compileJavaCode(code, pageNum);
+            compileResults = javaCompile.compileJavaCode(code, pageNum, request);
         }
 
         if (lang.equals("C")) {
-            compileResults = clangCompile.compileClangCode(code, pageNum);
+            compileResults = clangCompile.compileClangCode(code, pageNum, request);
         }
 
         if (lang.equals("PYTHON")) {
-            compileResults = pythonCompile.compilePythonCode(code, pageNum);
+            compileResults = pythonCompile.compilePythonCode(code, pageNum, request);
         }
 
 

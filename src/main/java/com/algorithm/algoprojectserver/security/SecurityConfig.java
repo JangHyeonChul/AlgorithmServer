@@ -21,11 +21,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
+        return http.cors().and().csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/admin/**").hasAnyAuthority(AuthorityConstains.ROLE_ADMIN)
-                .requestMatchers("/history/**", "/challenge/**", "/board/write").
-                hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+//                .requestMatchers("/history/**", "/challenge/**", "/board/write").
+//                hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .requestMatchers("/**").permitAll()
                 .and().csrf().disable()
                 .formLogin()
