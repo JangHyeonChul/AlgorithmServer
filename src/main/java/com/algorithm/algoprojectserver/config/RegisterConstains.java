@@ -1,5 +1,13 @@
 package com.algorithm.algoprojectserver.config;
 
+
+/**
+ * File Name : RegisterConstains
+ * Description : 가입 관련 상수 Class
+ * Update : 2023-08-13
+ */
+
+
 public final class RegisterConstains {
 
     public static final int MAX_EMAIL_LENGTH = 30; // 이메일 최대 글자수
