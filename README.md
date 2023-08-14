@@ -57,7 +57,7 @@
 **ERD**
 
 <br/>
-<img src = "https://github.com/JangHyeonChul/Algo_Project/assets/74286316/73509d61-7873-4211-a2d4-3c8f12e7994b.png" width="700" height="400">
+<img src = "https://github.com/JangHyeonChul/AlgorithmServer/assets/74286316/2cdd6e21-f92e-4e6d-b5da-ce22fce1bd94.png" width="700" height="400">
 <br/>
 <br/>
 <br/>
@@ -97,7 +97,7 @@
 
 **디렉터리구조**
 
-![directery](https://github.com/JangHyeonChul/Algo_Project/assets/74286316/a336dbbc-3637-41c2-8b2a-5e3de0bb60cc)
+![directery](https://github.com/JangHyeonChul/AlgorithmServer/assets/74286316/5c27f378-59db-47c4-8be9-bfb40edf12b1)
 <br/>
 <br/>
 <br/>
@@ -121,7 +121,7 @@
 **오류메세지 국제화**
 
 
-![message](https://github.com/JangHyeonChul/Algo_Project/assets/74286316/15b3c9a4-cc6b-40c9-9b32-ae1f7a401ca5)
+<img src = "https://github.com/JangHyeonChul/AlgorithmServer/assets/74286316/a50d5f65-6d87-4628-81db-1eb23922a9a8.png" width="700" height="700">
 <br/>
 <br/>
 <br/>
@@ -139,8 +139,7 @@
 
 **컴파일**
 
-
-![16](https://github.com/JangHyeonChul/Algo_Project/assets/74286316/e1f61300-b918-438e-b763-0b9d9e7f77eb)
+<img src = "https://github.com/JangHyeonChul/AlgorithmServer/assets/74286316/b8b00b9a-1c8b-44ff-a1c6-f47b13f5ece0.png" width="700" height="700">
 
 
 <br/>
@@ -150,6 +149,33 @@
 알고리즘은 서버에서 받게되고 언어에 해당되는 컴파일러 및 인터프리터가 받아 컴파일을 수행하게된다
 
 
+
+<br/>
+
+
+**악성코드 방지**
+
+
+<br/>
+<br/>
+<br/>
+
+잘못된 코드가 넘겨지는걸 방지하기 위한 방지책
+
+1. 글자수제한
+   코드 글자수 제한으로 비정상적으로 긴 코드가 컴파일 되는것을 방지 또한 알고리즘 최적화를 위해 글자수를 줄이는 방식으로
+   좀더 고민을 하게 만드는 부수적인 효과도 기대할수 있음
+
+2. 웹서버와 컴파일 서버 분리
+   웹서버에는 다양한 비즈니스 로직과 민감데이터(DB, 설정정보 등)이 들어있기 때문에 해당서버에서 컴파일은 위험하다고 판단
+   컴파일 서버를 분리시켜 해당서버에서는 오로지 컴파일만 수행하며
+   그외에 다른기능이나 다른정보를 일절 저장하지않는다
+
+3. 특정문자 필터링
+   exit, runtime 등 알고리즘 검증하는 요소에 있어서 필요없는 Method는 필터링
+
+3-1. IP 자동차단
+   필터링 된 문자는 악의적인 요소가 있다고 판단되기 때문에 일정횟수 초과시 해당계정 차단
 
 
 
