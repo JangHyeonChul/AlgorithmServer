@@ -41,6 +41,12 @@
         WHERE user_id = #{username}
     </update>
 
+    <update id="updateUserProfileImg">
+        UPDATE user
+        SET user_profile_img = #{img}
+        WHERE user_id = #{userId}
+    </update>
+
 
 
 </mapper>

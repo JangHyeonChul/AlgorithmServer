@@ -17,5 +17,6 @@ public class MyInfoDTO {
     private String email;
     private String create_at;
 
+    private String user_profile_img;
 
 }

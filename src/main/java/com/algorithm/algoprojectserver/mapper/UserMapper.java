@@ -17,4 +17,5 @@ public interface UserMapper {
 
 
     MemberDTO findByUserId(String userId);
+    void updateUserProfileImg(@Param("userId") String userId, @Param("img") String img);
 }

@@ -21,6 +21,8 @@ public class MemberDTO {
     private String user_grade;
     private LocalDateTime create_at;
 
+    private String user_profile_img;
+
     public MemberDTO() {}
 
 

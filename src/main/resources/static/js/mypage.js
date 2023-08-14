@@ -23,15 +23,21 @@ function MyinfoBtn() {
         url : '/mypage/modifyinfo',
 
         success : function (data) {
+
+            console.log(data);
             var mypageBox = $('.mypage-info');
             var myInfoHTML =  '<h1 class="mypage-title">정보수정</h1>\n' +
-
 
                 '<div class="img-upload">\n' +
 
                 '<label>프로필이미지</label>\n' +
-                '<img class="profile_img" src="/img/DEFALUTE_PROFILE_IMG.png" />\n' +
-                '<p>업로드하기</p>\n' +
+                '<div class="profile">'+
+                '<img class="profile_img" src="' + data.user_profile_img + '" />\n' +
+                '</div>'+
+                '<form method="POST" enctype="multipart/form-data">\n' +
+                '<input type="file" id="file" name="file"/>\n' +
+                '<button type="button" onclick="imgUpload()">전송</button>' +
+                '</form>'+
 
                 '</div>\n' +
 
@@ -58,6 +64,38 @@ function MyinfoBtn() {
             $('#MyInfoMessage').attr("value", data.user_message);
         }
     })
+}
+
+
+function imgUpload() {
+    var imgFile = $('#file')[0].files[0];
+    var userID =  $('#MyInfoID').val();
+    var formData = new FormData();
+
+    console.log(userID);
+
+    formData.append('imgfile', imgFile);
+    formData.append("userID", userID);
+
+    $.ajax({
+        type: "POST",
+        enctype: 'multipart/form-data',
+        url: "/upload",
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {
+
+            $('.profile').html(
+                '<img class="profile_img" src="' + data + '" />'
+            )
+            console.log(data);
+
+        }
+    })
+
+    console.log(imgFile);
 }
 
 function PasswordSubmit() {

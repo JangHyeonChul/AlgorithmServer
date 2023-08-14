@@ -1,11 +1,9 @@
 package com.algorithm.algoprojectserver.controller;
 
-import com.algorithm.algoprojectserver.dto.BoardDTO;
-import com.algorithm.algoprojectserver.dto.NotificationDTO;
-import com.algorithm.algoprojectserver.dto.ProblemDTO;
-import com.algorithm.algoprojectserver.dto.RankDTO;
+import com.algorithm.algoprojectserver.dto.*;
 import com.algorithm.algoprojectserver.dto.home.LevelCountDTO;
 import com.algorithm.algoprojectserver.service.*;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,17 +18,15 @@ public class HomeController {
     NotificationService notificationService;
     BoardService boardService;
     ProblemService problemService;
+    UserService userService;
 
-    public HomeController(HomeService homeService,
-                          RankService rankService,
-                          NotificationService notificationService,
-                          BoardService boardService,
-                          ProblemService problemService) {
+    public HomeController(HomeService homeService, RankService rankService, NotificationService notificationService, BoardService boardService, ProblemService problemService, UserService userService) {
         this.homeService = homeService;
         this.rankService = rankService;
         this.notificationService = notificationService;
         this.boardService = boardService;
         this.problemService = problemService;
+        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -47,6 +43,7 @@ public class HomeController {
         model.addAttribute("notifications", notificationBoard);
         model.addAttribute("boards", totalBoard);
         model.addAttribute("problems", allProblems);
+
 
         return "main";
     }

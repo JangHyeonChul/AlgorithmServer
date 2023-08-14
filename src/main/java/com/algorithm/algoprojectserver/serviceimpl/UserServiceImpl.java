@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
     IPBlockMapper ipBlockMapper;
     ProblemMapper problemMapper;
 
+
     public UserServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder, UserMapper userMapper, ProblemMapper problemMapper) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userMapper = userMapper;
@@ -30,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MemberDTO findByUserIdOrEmail(String userData) {
+
         return userMapper.findByUserData(userData);
     }
 
@@ -93,6 +95,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void ipblock(String ip) {
         ipBlockMapper.insertIPBlock(ip);
+    }
+
+    @Override
+    public void updateUserImg(String userId, String img) {
+        userMapper.updateUserProfileImg(userId, img);
     }
 
     private void writeUserModifyInfo(String username, String message) {

@@ -17,4 +17,6 @@ public interface UserService {
     String userModifyInfoValidCheck(String username, String user, String message);
     void ipblock(String ip);
 
+    void updateUserImg(String userId, String img);
+
 }
