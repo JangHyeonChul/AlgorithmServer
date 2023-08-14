@@ -8,6 +8,12 @@ editor.setValue("구현언어를 선택하고 소스템플릿을 선택하면 �
 
 // 이벤트 리스너 추가
 editor.getSession().on('change', function() {
+    var code = editor.getValue().length;
+    $('.problem-text-check').html(
+        '      글자수 : <p>' + code + '</p> / 500\n'
+    );
+
+    console.log(code);
     // 에디터의 변경 내용을 처리하는 코드
 });
 
@@ -39,3 +45,4 @@ $('.select-C').click(function () {
 $('.select-Python').click(function () {
     editor.setValue("파이썬");
 })
+

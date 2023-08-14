@@ -88,7 +88,6 @@ public class ProblemController {
         model.addAttribute("page", page);
         model.addAttribute("problemAnswer", problemAnswers);
 
-        System.out.println("problemAnswers = ");
 
 
         return "/problem/problem-submit";
@@ -111,7 +110,11 @@ public class ProblemController {
 
 
     @PostMapping("/challenge/{pageNum}")
-        public String challenge(String code, @RequestParam("language")String lang, @PathVariable Integer pageNum, HttpServletRequest request) {
+        public String challenge(String code, @RequestParam("language")String lang, @PathVariable Integer pageNum, Model model, HttpServletRequest request) {
+        if (code.length() > 1000) {
+            return "redirect:/challenge/" + pageNum;
+        }
+
         compileService.compileHandler(code, lang, pageNum, request);
 
         return "redirect:/problem";
