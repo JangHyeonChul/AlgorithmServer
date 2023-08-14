@@ -4,6 +4,7 @@ package com.algorithm.algoprojectserver.serviceimpl;
 import com.algorithm.algoprojectserver.config.AuthorityConstains;
 import com.algorithm.algoprojectserver.dto.MemberDTO;
 import com.algorithm.algoprojectserver.dto.MyInfoDTO;
+import com.algorithm.algoprojectserver.mapper.IPBlockMapper;
 import com.algorithm.algoprojectserver.mapper.ProblemMapper;
 import com.algorithm.algoprojectserver.mapper.UserMapper;
 import com.algorithm.algoprojectserver.service.UserService;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
     BCryptPasswordEncoder bCryptPasswordEncoder;
     UserMapper userMapper;
+    IPBlockMapper ipBlockMapper;
     ProblemMapper problemMapper;
 
     public UserServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder, UserMapper userMapper, ProblemMapper problemMapper) {
@@ -86,6 +88,11 @@ public class UserServiceImpl implements UserService {
 
         writeUserModifyInfo(username, message);
         return "success";
+    }
+
+    @Override
+    public void ipblock(String ip) {
+        ipBlockMapper.insertIPBlock(ip);
     }
 
     private void writeUserModifyInfo(String username, String message) {

@@ -231,9 +231,7 @@ function EmailBtn() {
                 authText = "현재 미인증 상태이며, 글쓰기, 알고리즘도전, 댓글작성 등 권한이 제한됩니다";
                 authMessage = '<div class="problem-submit-btn">\n'+
                     '<button type="button" onClick="EmailSubmit()">이메일 인증</button>\n'+
-               ' </div>'+
-
-                '<p class="email-message" style="color: #ff5e5e;">남은 이메일인증 횟수 : ' + data.trial + '/5</p>\n';
+               ' </div>'
 
             }
 

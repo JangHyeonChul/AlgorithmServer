@@ -5,6 +5,7 @@ import com.algorithm.algoprojectserver.dto.*;
 import com.algorithm.algoprojectserver.service.CompileService;
 import com.algorithm.algoprojectserver.service.HistoryService;
 import com.algorithm.algoprojectserver.service.ProblemService;
+import com.algorithm.algoprojectserver.validator.CompileValidator;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -22,11 +23,13 @@ public class ProblemController {
     ProblemService problemService;
     CompileService compileService;
     HistoryService historyService;
+    CompileValidator compileValidator;
 
-    public ProblemController(ProblemService problemService, CompileService compileService, HistoryService historyService) {
+    public ProblemController(ProblemService problemService, CompileService compileService, HistoryService historyService, CompileValidator compileValidator) {
         this.problemService = problemService;
         this.compileService = compileService;
         this.historyService = historyService;
+        this.compileValidator = compileValidator;
     }
 
     @GetMapping("/problem")
@@ -111,9 +114,10 @@ public class ProblemController {
 
     @PostMapping("/challenge/{pageNum}")
         public String challenge(String code, @RequestParam("language")String lang, @PathVariable Integer pageNum, Model model, HttpServletRequest request) {
-        if (code.length() > 1000) {
+        if (compileValidator.compileValid(code)) {
             return "redirect:/challenge/" + pageNum;
         }
+
 
         compileService.compileHandler(code, lang, pageNum, request);
 

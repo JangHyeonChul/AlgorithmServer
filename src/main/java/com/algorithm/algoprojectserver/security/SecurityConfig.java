@@ -10,22 +10,21 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 @Configuration
-@EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfig{
 
     @Autowired
     LoginSuccessHadler loginSuccessHadler;
 
-
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception  {
         return http.cors().and().csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/admin/**").hasAnyAuthority(AuthorityConstains.ROLE_ADMIN)
-//                .requestMatchers("/history/**", "/challenge/**", "/board/write").
-//                hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .requestMatchers("/history/**", "/challenge/**", "/board/write").
+                hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .requestMatchers("/**").permitAll()
                 .and().csrf().disable()
                 .formLogin()
@@ -42,6 +41,7 @@ public class SecurityConfig {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
 
 

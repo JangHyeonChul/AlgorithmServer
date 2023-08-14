@@ -15,5 +15,6 @@ public interface UserService {
     MyInfoDTO getUserInfo(String username);
 
     String userModifyInfoValidCheck(String username, String user, String message);
+    void ipblock(String ip);
 
 }

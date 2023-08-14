@@ -13,7 +13,7 @@
     <select id="countAllBoard" resultType="int" parameterType="String">
         SELECT count(*)
         FROM board
-        WHERE b_category = COALESCE(#{category}, b_category)
+        WHERE b_category = COALESCE(#{category}, b_category) AND b_delete = 0
     </select>
 
     <select id="selectAllBoards" resultType="BoardDTO" >

@@ -4,6 +4,8 @@ import com.algorithm.algoprojectserver.config.AuthorityConstains;
 import com.algorithm.algoprojectserver.dto.TokenLinkDTO;
 import com.algorithm.algoprojectserver.service.TokenLinkService;
 import com.algorithm.algoprojectserver.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ public class TokenLinkController {
     @GetMapping("/linkauthentication")
     public String linkAuthentication(@RequestParam("token") String token,
                                      @RequestParam("id") String id,
-                                     Model model) {
+                                     Model model, HttpServletRequest request) {
 
         TokenLinkDTO tokenLink = tokenLinkService.getTokenLink(id);
         LocalDateTime timeNow = LocalDateTime.now();
@@ -38,10 +40,13 @@ public class TokenLinkController {
         if(after) {
             userService.updateUserAuthGrade(id, roleUser);
             model.addAttribute("welcomeMessage", "LinkSuccess");
-            System.out.println("인증에 성공하였습니다");
+
+            HttpSession session = request.getSession();
+            session.invalidate();
+
         } else {
             model.addAttribute("welcomeMessage", "LinkFail");
-            System.out.println("토큰이 만료되었습니다");
+
         }
 
         return "welcome";
