@@ -1,5 +1,12 @@
 package com.algorithm.algoprojectserver.controller;
 
+/**
+ * File Name : Mypagecontroller
+ * Description : 로그인 관련 컨트롤러
+ * Update : 2023-08-16
+ */
+
+
 import com.algorithm.algoprojectserver.dto.BoardDTO;
 import com.algorithm.algoprojectserver.dto.MemberDTO;
 import com.algorithm.algoprojectserver.dto.MyInfoDTO;

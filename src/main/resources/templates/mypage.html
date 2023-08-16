@@ -23,7 +23,6 @@
         <th:block th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
         <h1>관리자메뉴</h1>
         <ul class="mypage-sidebox">
-            <li>사이트 통계</li>
             <a th:href="@{/admin/link}"><li>사이트 등록</li></a>
             <a th:href="@{/admin/problem}"><li>문제 등록</li></a>
             <a th:href="@{/admin/notification}"><li>공지사항 등록</li></a>
