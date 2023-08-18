@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.mapper;
 
+/**
+ * File Name : BoardMapper
+ * Description : 게시물 관련 Mybatis 데이터베이스 Mapping
+ * Update : 2023-08-18
+ */
+
 
 import com.algorithm.algoprojectserver.dto.BoardDTO;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.mapper;
 
+/**
+ * File Name : ProblemMapper
+ * Description : 문제 관련 Mybatis 데이터베이스 Mapping
+ * Update : 2023-08-18
+ */
+
 
 import com.algorithm.algoprojectserver.dto.*;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.mapper;
 
+/**
+ * File Name : AlramMapper
+ * Description : 알람 관련 Mybatis 데이터베이스 Mapping
+ * Update : 2023-08-18
+ */
+
 import com.algorithm.algoprojectserver.dto.AlramDTO;
 import com.algorithm.algoprojectserver.dto.join.AlramBoardDTO;
 import org.apache.ibatis.annotations.Mapper;
