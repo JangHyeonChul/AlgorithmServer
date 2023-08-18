@@ -1,5 +1,13 @@
 package com.algorithm.algoprojectserver.controller;
 
+
+/**
+ * File Name : SearchController
+ * Description : 회원가입 관련 컨트롤러
+ * Update : 2023-08-18
+ */
+
+
 import com.algorithm.algoprojectserver.dto.BoardDTO;
 import com.algorithm.algoprojectserver.dto.NotificationDTO;
 import com.algorithm.algoprojectserver.dto.ProblemDTO;
@@ -26,11 +34,22 @@ public class SearchController {
         this.notificationService = notificationService;
     }
 
+    /*
+     * API : /search
+     * Method : GET
+     * DESCRIPTION : 검색 화면 호출
+     * */
+
     @GetMapping("/search")
     public String search() {
         return "search";
     }
 
+    /*
+     * API : /searching
+     * Method : GET
+     * DESCRIPTION : keyword에 해당하는 검색결과 반환
+     * */
 
     @GetMapping("/searching")
     @ResponseBody

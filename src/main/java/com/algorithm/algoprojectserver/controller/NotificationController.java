@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.controller;
 
+/**
+ * File Name : NotificationController
+ * Description : 공지사항 관련 컨트롤러
+ * Update : 2023-08-18
+ */
+
 import com.algorithm.algoprojectserver.PageHandler;
 import com.algorithm.algoprojectserver.dto.NotificationDTO;
 import com.algorithm.algoprojectserver.service.NotificationService;
@@ -19,6 +25,13 @@ public class NotificationController {
     public NotificationController(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
+
+
+    /*
+     * API : /notification/{pageNum}
+     * Method : GET
+     * DESCRIPTION : pageNum에 해당하는 공지사항 게시물을 호출
+     * */
 
     @GetMapping("/notification/{pageNum}")
     public String notification(@PathVariable(required = false) int pageNum,

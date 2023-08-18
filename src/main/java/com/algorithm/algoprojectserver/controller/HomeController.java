@@ -42,7 +42,7 @@ public class HomeController {
     /*
      * API : /
      * Method : GET
-     * DESCRIPTION : 메인 화면 갱신 총문제수, 랭킹, 공지사항, 게시물, 문제이 표기됨
+     * DESCRIPTION : 메인 화면 갱신 총문제수, 랭킹, 공지사항, 게시물, 문제가 표기됨
      * */
 
     @GetMapping("/")

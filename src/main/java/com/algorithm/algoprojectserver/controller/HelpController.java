@@ -21,7 +21,6 @@ public class HelpController {
     @GetMapping("/help")
     public String help() {
 
-
         return "help";
     }
 

@@ -3,6 +3,9 @@ package com.algorithm.algoprojectserver.service;
 import com.algorithm.algoprojectserver.dto.MemberDTO;
 import com.algorithm.algoprojectserver.dto.MyInfoDTO;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Service
 public interface UserService {
@@ -18,5 +21,6 @@ public interface UserService {
     void ipblock(String ip);
 
     void updateUserImg(String userId, String img);
+    String profileImgUpload(MultipartFile imgfile, String userId) throws IOException;
 
 }

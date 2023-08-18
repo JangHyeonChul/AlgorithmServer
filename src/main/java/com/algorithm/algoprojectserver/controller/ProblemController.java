@@ -1,5 +1,12 @@
 package com.algorithm.algoprojectserver.controller;
 
+/**
+ * File Name : ProblemController
+ * Description : 알고리즘 문제 관련 컨트롤러
+ * Update : 2023-08-18
+ */
+
+
 import com.algorithm.algoprojectserver.PageHandler;
 import com.algorithm.algoprojectserver.dto.*;
 import com.algorithm.algoprojectserver.service.CompileService;
@@ -32,6 +39,12 @@ public class ProblemController {
         this.compileValidator = compileValidator;
     }
 
+    /*
+     * API : /problem
+     * Method : GET
+     * DESCRIPTION : 알고리즘 문제 List 호출
+     * */
+
     @GetMapping("/problem")
     public String problem(@RequestParam(defaultValue = "1") Integer page,
                           @RequestParam(defaultValue = "unused") String use,
@@ -60,7 +73,11 @@ public class ProblemController {
         return "/problem/problem";
     }
 
-
+    /*
+     * API : /problem/{pageNum}
+     * Method : GET
+     * DESCRIPTION : pageNum에 해당하는 문제 정보 호출
+     * */
 
     @GetMapping("/problem/{pageNum}")
     public String problemPage(@PathVariable Integer pageNum, @RequestParam(defaultValue = "1") Integer page, Model model) {
@@ -78,7 +95,11 @@ public class ProblemController {
         return "/problem/problem-Info";
     }
 
-
+    /*
+     * API : /challenge/{pageNum}
+     * Method : GET
+     * DESCRIPTION : pageNum에 해당하는 알고리즘 도전화면 호출
+     * */
 
 
     @GetMapping("/challenge/{pageNum}")
@@ -96,6 +117,13 @@ public class ProblemController {
         return "/problem/problem-submit";
     }
 
+
+    /*
+     * API : /history/{pageNum}
+     * Method : GET
+     * DESCRIPTION : pageNum에 해당하는 알고리즘 문제의 제출내역을 호출
+     * */
+
     @GetMapping("/history/{pageNum}")
     public String problemHistory(@PathVariable Integer pageNum, @RequestParam(defaultValue = "1") Integer page, Model model) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -110,7 +138,11 @@ public class ProblemController {
     }
 
 
-
+    /*
+     * API : /challenge/{pageNum}
+     * Method : POST
+     * DESCRIPTION : pageNum에 해당하는 알고리즘 문제의 정답을 제출
+     * */
 
     @PostMapping("/challenge/{pageNum}")
         public String challenge(String code, @RequestParam("language")String lang, @PathVariable Integer pageNum, Model model, HttpServletRequest request) {
@@ -124,6 +156,12 @@ public class ProblemController {
         return "redirect:/problem";
     }
 
+    /*
+     * API : /random
+     * Method : GET
+     * DESCRIPTION : 알고리즘 문제를 랜덤으로 호출
+     * */
+
     @GetMapping("/random")
     public String random() {
         int countAllProblem = problemService.getCountAllProblem();
@@ -133,6 +171,12 @@ public class ProblemController {
 
     }
 
+    /*
+     * API : /problem/type
+     * Method : GET
+     * DESCRIPTION : 알고리즘 문제를 타입 호출
+     * */
+
     @GetMapping("/problem/type")
     public String type(Model model) {
         Map<String, Integer> problemTypeCount = problemService.getProblemTypeCountMap();
@@ -141,6 +185,12 @@ public class ProblemController {
 
         return "/problem/problem-type";
     }
+
+    /*
+     * API : /problem/type/{typename}
+     * Method : GET
+     * DESCRIPTION : typename에 해당하는 알고리즘 문제를 호출
+     * */
 
     @GetMapping("/problem/type/{typename}")
     public String typeproblem(@PathVariable("typename") String typename,
@@ -155,12 +205,17 @@ public class ProblemController {
         return problemsTypeHandler(offset, allProblems, pageHandler, model);
     }
 
+    /*
+     * API : /problem/delete
+     * Method : POST
+     * DESCRIPTION : pageNum의 파라미터 값을 토대로 해당 문제를 삭제
+     * */
+
     @PostMapping("/problem/delete")
     @ResponseBody
     public String deleteProblem(@RequestParam("pageNum") int pageNum) {
 
         problemService.deleteProblem(pageNum);
-        System.out.println("pageNum = " + pageNum);
 
         return null;
     }

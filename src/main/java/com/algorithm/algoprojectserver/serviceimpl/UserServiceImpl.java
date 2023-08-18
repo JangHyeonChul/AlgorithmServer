@@ -10,7 +10,10 @@ import com.algorithm.algoprojectserver.mapper.UserMapper;
 import com.algorithm.algoprojectserver.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -101,6 +104,21 @@ public class UserServiceImpl implements UserService {
     public void updateUserImg(String userId, String img) {
         userMapper.updateUserProfileImg(userId, img);
     }
+
+    @Override
+    public String profileImgUpload(MultipartFile imgfile, String userId) throws IOException {
+        String uploadPath = "C:\\Users\\wkdgu\\Documents\\userimg";
+
+        File saveFile = new File(uploadPath, userId + "_userprofile.png");
+
+        imgfile.transferTo(saveFile);
+
+        String imgURI = "/img/user/" + userId + "_userprofile.png";
+
+        return imgURI;
+
+    }
+
 
     private void writeUserModifyInfo(String username, String message) {
         userMapper.updateUserMessage(username, message);
