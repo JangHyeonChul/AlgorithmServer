@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : TokenLinkDTO
+ * Description : 이메일 인증 토큰 관련 DTO
+ * Update : 2023-08-18
+ */
+
 import lombok.Data;
 
 import java.time.LocalDateTime;

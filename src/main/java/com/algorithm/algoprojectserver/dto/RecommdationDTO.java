@@ -1,6 +1,12 @@
 package com.algorithm.algoprojectserver.dto;
 
 
+/**
+ * File Name : RecommdationDTO
+ * Description : 추천수 관련 데이터 DTO
+ * Update : 2023-08-18
+ */
+
 import lombok.Data;
 
 @Data

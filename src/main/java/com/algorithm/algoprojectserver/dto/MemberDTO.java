@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : MemberDTO
+ * Description : 유저정보 관련 DTO
+ * Update : 2023-08-18
+ */
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : Notification
+ * Description : 공지사항 관련 DTO
+ * Update : 2023-08-18
+ */
+
 import lombok.Data;
 
 import java.time.LocalDateTime;

@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : ProblemOptionDTO
+ * Description : 문제 옵션 관련 DTO
+ * Update : 2023-08-18
+ */
 
 import lombok.Data;
 

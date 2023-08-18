@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : SolveHistory
+ * Description : 제출내역 관련 데이터
+ * Update : 2023-08-18
+ */
 
 import lombok.Data;
 

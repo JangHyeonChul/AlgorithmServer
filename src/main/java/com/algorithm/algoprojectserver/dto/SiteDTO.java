@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : SiteDTO
+ * Description : 관련 사이트 데이터 DTO
+ * Update : 2023-08-18
+ */
+
 import lombok.Data;
 
 @Data

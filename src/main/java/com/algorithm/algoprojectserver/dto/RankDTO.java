@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : RankDTO
+ * Description : 랭킹 관련 DTO
+ * Update : 2023-08-18
+ */
 
 import lombok.Data;
 

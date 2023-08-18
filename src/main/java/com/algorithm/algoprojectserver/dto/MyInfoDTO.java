@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.dto;
 
+/**
+ * File Name : MyinfoDTO
+ * Description : 마이페이지 - 정보 관련 DTO
+ * Update : 2023-08-18
+ */
+
 import lombok.Builder;
 import lombok.Data;
 
