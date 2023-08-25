@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.service;
 
+/**
+ * File Name : HistoryService
+ * Description : 제출내역 댓글 작성 Service Mapper
+ * Update : 2023-08-21
+ */
 
 import com.algorithm.algoprojectserver.dto.SolveHistoryDTO;
 

@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.security;
 
+/**
+ * File Name : MemberDetails
+ * Description : Spring Security에서 로그인한 사용자의 데이터가 담길 DTO
+ * Update : 2023-08-21
+ */
+
 
 import com.algorithm.algoprojectserver.dto.MemberDTO;
 import lombok.Data;
@@ -15,6 +21,7 @@ import java.util.List;
 @Data
 
 public class MemberDetails implements UserDetails {
+
 
     private MemberDTO memberDTO;
 

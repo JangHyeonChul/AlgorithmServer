@@ -90,12 +90,10 @@ function imgUpload() {
             $('.profile').html(
                 '<img class="profile_img" src="' + data + '" />'
             )
-            console.log(data);
 
         }
     })
 
-    console.log(imgFile);
 }
 
 function PasswordSubmit() {

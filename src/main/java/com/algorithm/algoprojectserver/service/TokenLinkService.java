@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.service;
 
+/**
+ * File Name : TokenLinkService
+ * Description : 이메일 인증 토큰 관련 Service Mapper
+ * Update : 2023-08-21
+ */
 
 import com.algorithm.algoprojectserver.dto.TokenLinkDTO;
 

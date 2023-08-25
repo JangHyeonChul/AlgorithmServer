@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.security;
 
+/**
+ * File Name : MemberDetailService
+ * Description : Spring Security에서 로그인한 사용자의 로직이 담긴 Service
+ * Update : 2023-08-21
+ */
+
 import com.algorithm.algoprojectserver.dto.MemberDTO;
 import com.algorithm.algoprojectserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

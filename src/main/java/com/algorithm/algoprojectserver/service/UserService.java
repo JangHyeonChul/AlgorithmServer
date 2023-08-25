@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.service;
 
+/**
+ * File Name : UserService
+ * Description : 유저 데이터 관련 작성 Service Mapper
+ * Update : 2023-08-21
+ */
+
 import com.algorithm.algoprojectserver.dto.MemberDTO;
 import com.algorithm.algoprojectserver.dto.MyInfoDTO;
 import org.springframework.stereotype.Service;

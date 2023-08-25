@@ -110,7 +110,7 @@ public class BoardController {
 
         log.info("[요청 IP : {}] {} 게시물의 알림 업데이트", request.getRemoteAddr(), boardNumber);
 
-        alramService.updateBoardAlram(boardNumber);
+        alramService.updateBoardAlram(boardNumber, request);
 
         log.info("[요청 IP : {}] {} 게시물의 조회수 업데이트", request.getRemoteAddr(), boardNumber);
 
@@ -267,7 +267,8 @@ public class BoardController {
     @ResponseBody
     @Transactional
     public List<CommentDTO> boardComment(@RequestParam("boardNumber") int boardNumber,
-                                    @RequestParam("commentContent") String commentContent) {
+                                    @RequestParam("commentContent") String commentContent,
+                                         HttpServletRequest request) {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -283,7 +284,7 @@ public class BoardController {
 
         AlramDTO alramDTO = new AlramDTO(boardNumber, userId);
 
-        alramService.writeBoardAlram(alramDTO);
+        alramService.writeBoardAlram(alramDTO, request);
 
         for (CommentDTO commentDTO : boardComments) {
             String commentUserName = commentDTO.getUser_id();

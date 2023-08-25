@@ -1,5 +1,11 @@
 package com.algorithm.algoprojectserver.service;
 
+/**
+ * File Name : BoardService
+ * Description : 게시물 작성 Service Mapper
+ * Update : 2023-08-21
+ */
+
 
 import com.algorithm.algoprojectserver.PageHandler;
 import com.algorithm.algoprojectserver.dto.BoardDTO;

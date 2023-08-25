@@ -1,5 +1,10 @@
 package com.algorithm.algoprojectserver.service;
 
+/**
+ * File Name : BoardCommentService
+ * Description : 게시물 댓글 작성 Service Mapper
+ * Update : 2023-08-21
+ */
 
 import com.algorithm.algoprojectserver.dto.CommentDTO;
 

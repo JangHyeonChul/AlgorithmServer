@@ -1,5 +1,12 @@
 package com.algorithm.algoprojectserver.security;
 
+/**
+ * File Name : LoginSuccessHandler
+ * Description :  관련 Mybatis 데이터베이스 Mapping
+ * Update : 2023-08-21
+ */
+
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
